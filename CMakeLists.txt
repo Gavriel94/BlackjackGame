@@ -3,4 +3,4 @@ project(BlackjackGame)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(BlackjackGame main.cpp)
+add_executable(BlackjackGame src/main.cpp src/Card.cpp include/Card.h)
