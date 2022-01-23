@@ -5,7 +5,7 @@ Card::Card(Value value, Suit suit) {
     this->value = value;
 }
 
-std::string Card::getSuit() {
+std::string Card::getSuit() const {
     int c = suit;
     std::string strSuit;
     switch(c) {
@@ -27,7 +27,7 @@ std::string Card::getSuit() {
     return strSuit;
 }
 
-std::string Card::getValue() {
+std::string Card::getValue() const {
     int c = value;
     std::string strValue;
     switch(c) {
@@ -76,7 +76,9 @@ std::string Card::getValue() {
     return strValue;
 }
 
-std::ostream& operator<<(std::ostream& output, Card& card) {
-    output << card.getValue() << " of " << card.getSuit() << std::endl;
+std::ostream& operator<<(std::ostream& output, const Card& card) {
+    std::string s = card.getSuit();
+    std::string v = card.getValue();
+    output << v << " of " << s << std::endl;
     return output;
 }

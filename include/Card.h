@@ -13,8 +13,8 @@ public:
         DIAMONDS, SPADES, CLUBS, HEARTS
     };
     Card(Value value, Suit suit);
-    std::string getSuit();
-    std::string getValue();
+    std::string getSuit() const;
+    std::string getValue() const;
     friend std::ostream& operator<<(std::ostream& output, const Card& card);
 private:
     Value value;
