@@ -8,11 +8,16 @@
 #include "Card.h"
 #include <iostream>
 #include <vector>
+#include <random>
 
 class Deck {
 public:
     Deck();
-    void shuffle(std::vector<Card> &stack);
+    void instantiateDeck();
+    void shuffle();
+    Card removeCard();
+    //used for testing
+    void printDeck();
 private:
     std::vector<Card> deck;
 };
