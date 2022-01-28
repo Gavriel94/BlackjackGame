@@ -7,18 +7,17 @@ Dealer::Dealer() {
     value = 0;
 }
 
-Deck Dealer::shuffleCards(Deck deck) {
+void Dealer::shuffleCards(Deck &deck) {
     deck.shuffle();
-    return deck;
 }
 
-void Dealer::hit(Deck deck, Player player) {
+void Dealer::hit(Deck &deck, Player &player) {
     Card c = deck.removeCard();
     player.hand.push_back(c);
 }
 
-void Dealer::hit(Deck deck) {
-    Card c = deck.removeCard(deck);
+void Dealer::hit(Deck &deck) {
+    Card c = deck.removeCard();
     hand.push_back(c);
 }
 
@@ -30,6 +29,10 @@ void Dealer::viewCards() {
     for(auto i : hand) {
         std::cout << i;
     }
+}
+
+bool Dealer::inGame() {
+    return playing;
 }
 
 int Dealer::getValue() {
