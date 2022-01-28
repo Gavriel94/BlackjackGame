@@ -4,18 +4,20 @@
 #include "../include/Player.h"
 #include "../include/Dealer.h"
 
-void startGame() {
-
-}
 
 int main() {
-    Deck deck;
+    Deck cards;
     Dealer dealer;
-    deck = dealer.shuffleCards(deck);
-    deck.getSize();
-    //issue with hit, card added to dealer hand but not being removed from deck.
-    dealer.hit(deck);
-    deck.getSize();
-    std::cout << "\n";
-    dealer.viewCards();
+    dealer.shuffleCards(cards);
+
+    while(dealer.inGame()) {
+        dealer.hit(cards);
+        dealer.viewCards();
+        if(dealer.getValue() > 21) {
+            std::cout << "Dealer bust!";
+            dealer.stick();
+        }
+    }
+
+    return 0;
 }
