@@ -12,6 +12,7 @@ public:
     enum Suit {
         DIAMONDS, SPADES, CLUBS, HEARTS, enumSuitEnd
     };
+    Card();
     Card(Value value, Suit suit);
     std::string getSuit() const;
     std::string getValue() const;

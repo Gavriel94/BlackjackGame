@@ -1,5 +1,7 @@
 #include "../include/Card.h"
 
+Card::Card() = default;
+
 Card::Card(Value value, Suit suit) {
     this->suit = suit;
     this->value = value;
