@@ -14,8 +14,8 @@ class Deck {
 public:
     Deck();
     void instantiateDeck();
-    void shuffle();
     Card removeCard();
+    void shuffle();
     //used for testing
     void printDeck();
     void getSize();
