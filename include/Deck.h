@@ -18,6 +18,7 @@ public:
     Card removeCard();
     //used for testing
     void printDeck();
+    void getSize();
 private:
     std::vector<Card> deck;
 };

@@ -13,11 +13,10 @@ public:
         DIAMONDS, SPADES, CLUBS, HEARTS, enumSuitEnd
     };
     Card(Value value, Suit suit);
-private:
     std::string getSuit() const;
     std::string getValue() const;
+private:
     friend std::ostream& operator<<(std::ostream& output, const Card& card);
-
     Value value;
     Suit suit;
 };

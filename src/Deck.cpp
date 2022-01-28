@@ -5,7 +5,7 @@ Deck::Deck() {
 }
 
 void Deck::instantiateDeck() {
-    for(int i =0; i < Card::enumSuitEnd; i++) {
+    for(int i = 0; i < Card::enumSuitEnd; i++) {
         for (int j = 2; j < Card::enumValueEnd; j++) {
             auto s = (Card::Suit) i;
             auto v = (Card::Value) j;
@@ -18,7 +18,7 @@ void Deck::instantiateDeck() {
 void Deck::shuffle() {
     auto rd = std::random_device {};
     auto rng = std::default_random_engine {
-        rd()
+            rd()
     };
     std::shuffle(std::begin(deck), std::end(deck), rng);
 }
@@ -42,5 +42,9 @@ void Deck::printDeck() {
     for(auto i : deck) {
         std::cout << i;
     }
+}
+
+void Deck::getSize() {
+    std::cout << deck.size();
 }
 
