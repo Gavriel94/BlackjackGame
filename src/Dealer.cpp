@@ -11,6 +11,13 @@ void Dealer::shuffleCards(Deck &deck) {
     deck.shuffle();
 }
 
+void Dealer::startGame(Deck &deck, std::vector<Player> &players) {
+    hit(deck);
+    for(auto & player : players) {
+        hit(deck, player);
+    }
+}
+
 void Dealer::hit(Deck &deck, Player &player) {
     Card c = deck.removeCard();
     player.hand.push_back(c);
@@ -29,6 +36,7 @@ void Dealer::viewCards() {
     for(auto i : hand) {
         std::cout << i;
     }
+    std::cout << "Total value: " << getValue();
 }
 
 bool Dealer::inGame() {
@@ -53,4 +61,21 @@ int Dealer::getValue() {
         }
     }
     return value;
+}
+
+/*
+ * Draft function, needs refining
+ */
+bool Dealer::hitOrStick(Player player) {
+    std::cout << "Hit (1) or stick (2)?";
+    int choice = 0;
+    std::cin >> choice;
+    switch(choice) {
+        case 1:
+            return player.hit();
+        case 2:
+            return player.stick();
+        default:
+            std::cout << "Pick a valid choice!";
+    }
 }

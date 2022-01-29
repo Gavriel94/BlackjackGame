@@ -12,12 +12,14 @@ class Dealer {
 public:
     Dealer();
     void shuffleCards(Deck &deck);
+    void startGame(Deck &deck, std::vector<Player> &players);
     void hit(Deck &deck, Player &player);
     void hit(Deck &deck);
     void stick();
     void viewCards();
     int getValue();
     bool inGame();
+    bool hitOrStick(Player player);
 private:
     std::vector<Card> hand;
     int value;
